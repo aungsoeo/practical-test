@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test Page</title>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	  
+	  <style>
+	  	.header-style{
+	  		background: #4caf4f;
+	  		color: #fff;
+	  		border-radius: 5px;
+	  	}
+	  	.signin{
+	  		width: 100% !important;
+	  		border-radius: 30px;
+	  	}
+	  	input{
+	  		border-radius: 30px !important;
+	  		background-color : #d1d1d1 !important;
+	  		text-align: center;
+	  	}
+	  	#username{
+	  		margin-top: 20px;
+	  	}
+	  	.singup-div{
+	  		margin-top: 100px;
+	  	}
+	  	.card{
+	  		margin-top: 50px;
+	  		margin-bottom: 50px;
+			border-radius: 10px; 
+	  		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	  	}
+	  	.card-header{
+	  		padding-top: 20px;
+	  		padding-bottom: 20px;
+	  	}
+	  	.required{
+	  		color:red;
+	  	}
+	  </style>
+
+
+</head>
+<body>
+	<center>
+	<div class="container center_div">
+		<div class="container-fluid">
+	    	<div class="row" style="margin-top: 50px;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+					<div class="card">
+						<form action="process.php" method="POSt">
+	    					<div class="card-header header-style" align="center" >
+	    						Sign In
+	    					</div>
+							<div class="card-body">
+							    <div class="form-group">
+							    	<span class="name-required required"></span>
+							      	<input type="text" class="form-control" id="username" placeholder="Username" name="username">
+							    </div>
+							    <div class="form-group">
+							    	<span class="psw-required required"></span>
+							     	<input type="password" class="form-control" id="pwd" placeholder="password" name="pwd">
+							    </div>
+							    <div align="center">
+							      <a href="#" style="color: #7e8880">Forogt Username/Password</a>
+							    </div>
+							    <div style="margin-top: 20px;">
+							    	<button type="button" class="btn signin btn-success">SIGN IN</button>
+							    </div>
+
+							    <div class="form-group singup-div" align="center">
+							    	<p style="color: #7e8880;">Don't Have an account?</p>
+							    	<a href="#" style="color: black">SIGN UP NOW</a>
+							    </div>	    	
+							</div>
+
+							
+						</form>
+					</div>
+				</div>
+				<div class="col-md-4"></div>
+	    	</div>
+		</div>
+		
+	</div>
+	</center>
+	<script>
+		$('document').ready(function(){
+			$('.signin').click(function(){
+				var name =$("#username").val();
+				var psw =$("#pwd").val();
+
+				if(name==''){
+					$('.name-required').text('Username is required!');
+				}
+
+				if(psw==''){
+					$('.psw-required').text('Password is required!');
+				}
+
+				$('#username').keypress(function(){
+					if($(this).val()!=''){
+						$('.name-required').text('');
+					}
+				});
+
+				$('#pwd').keypress(function(){
+					if($(this).val()!=''){
+						$('.psw-required').text('');
+					}
+				});
+
+				if((name!='') && (psw!='')){
+					if((name=='aso') &&  (psw=='123')){
+						$('form').submit();
+					}else{
+						alert('Username and  password incorrect! ');
+					}
+					
+				}
+			});
+		});
+	</script>
+</body>
+</html>
